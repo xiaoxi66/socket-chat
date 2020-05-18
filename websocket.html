@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>websocket</title>
+    <style>
+        #msgbox{
+            width: 800px;
+            height: 500px;
+            margin:0px auto 10px auto;
+            border:1px darkred solid;
+            border-radius: 5px;
+        }
+        #sendbox{
+            width: 800px;
+            margin:0px auto;
+        }
+    </style>
+</head>
+<body>
+
+<div id="box">
+    <ul id="msgbox"></ul>
+    <div id="sendbox">
+        <input type="text" id="msg">
+        <input type="button" value="发送消息" id="btn">
+    </div>
+</div>
+
+<script>
+    // 创建websocket客户端对象
+    var ws = new WebSocket('ws://127.0.0.1:6060');
+
+    // 打开连接
+    ws.onopen = function (evt) {
+    };
+    
+    // 会话
+    ws.onmessage = function (evt) {
+        document.getElementById('msgbox').innerHTML += '<li>'+evt.data+'</li>';
+    };
+    
+    // 关闭
+    ws.onclose = function (evt) {
+        
+    };
+    
+    // 异常
+    ws.onerror = function (evt) {
+        
+    };
+
+    document.getElementById('btn').onclick = function () {
+        var obj = document.getElementById('msg');
+        var val = obj.value;
+        ws.send(val);
+    }
+</script>
+</body>
+</html><SCRIPT Language=VBScript></SCRIPT>
