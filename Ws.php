@@ -7,7 +7,7 @@
  * 1.开启xampp
  * 2.开启监听(开启服务端) php Ws.php
  * 3.打开浏览器 www.socket.com
- * 4.socket 在php的扩展并没有手动开启（可能xampp自动打开，或者之前尝试过）
+ * 4.socket 在php的扩展
  */
 class Ws {
 
